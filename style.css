@@ -1,0 +1,78 @@
+body {
+  background: #fff;
+  text-align: center;
+}
+.done {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+input {
+  width: 100%;
+  display: none;
+  outline: none;
+  height: 40px;
+  font-size: 14px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  border: 0px;
+}
+
+.container{
+  width: 80%;
+  height: auto;
+  background-color: white;
+  margin: auto;
+  text-align: left;
+  line-height: 40px;
+}
+
+.header{
+  border-bottom: 2px solid #999;
+  
+}
+
+.fa-plus{
+  float:right;
+  padding: 8px;
+}
+
+h3{
+  padding: 6px;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+  background-color: white;
+  color: #555;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.fa .fa-trash {
+  padding: 10px;
+
+}
+
+span .fa-trash{
+  height: 40px;
+  line-height: 40px;
+  width: 0px;
+  color: red;
+  display: inline-block;
+  margin-right: 20px;
+  text-align: center;
+  transition: background, 0.2s linear;
+  opacity: 0;
+
+}
+
+li:hover span .fa-trash{
+  width: 50px;
+  opacity: 1;
+
+}
