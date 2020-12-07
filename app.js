@@ -6,12 +6,16 @@ try {
 } catch (error) {
     console.error(error);
 }
-lunes.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#lunes ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#lunes input').val('');
-  }
-})
+if ( lunes != null ) {
+  lunes.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#lunes ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#lunes input').val('');
+    }
+  })
+} else {
+  lunes = Array();
+}
 
 // display or hide input field on click on +
 $('#lunes .fa-plus').on('click', function(){
@@ -22,6 +26,9 @@ $('#lunes .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#lunes ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  lunes[id].status = $(this).attr('class');
+  window.localStorage.setItem('lunes', JSON.stringify(lunes));
 })
 
 
@@ -31,7 +38,11 @@ $('#lunes input').on('keypress', function(e){
       value = $('#lunes input').val();
       $('#lunes ul').append('<li data-id="' + lunes.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#lunes input').val('');
-      lunes.push(value);
+      var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      lunes.push(valor);
       window.localStorage.setItem('lunes', JSON.stringify(lunes));
   }
 })
@@ -56,12 +67,17 @@ try {
 } catch (error) {
     console.error(error);
 }
-martes.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#martes ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#martes input').val('');
-  }
-})
+if ( martes != null ) {
+  martes.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#martes ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#martes input').val('');
+    }
+  })
+} else {
+  martes = Array();
+}
+
 
 // display or hide input field on click on +
 $('#martes .fa-plus').on('click', function(){
@@ -72,6 +88,9 @@ $('#martes .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#martes ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  martes[id].status = $(this).attr('class');
+  window.localStorage.setItem('martes', JSON.stringify(martes));
 })
 
 
@@ -81,7 +100,12 @@ $('#martes input').on('keypress', function(e){
       value = $('#martes input').val();
       $('#martes ul').append('<li data-id="' + martes.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#martes input').val('');
-      martes.push(value);
+     
+      var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      martes.push(valor);
       window.localStorage.setItem('martes', JSON.stringify(martes));
   }
 })
@@ -104,12 +128,17 @@ try {
 } catch (error) {
     console.error(error);
 }
-miercoles.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#miercoles ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#miercoles input').val('');
-  }
-})
+if ( miercoles != null ) {
+  miercoles.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#miercoles ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#miercoles input').val('');
+    }
+  })
+} else {
+  miercoles = Array();
+}
+
 // display or hide input field on click on +
 $('#miercoles .fa-plus').on('click', function(){
   $('#miercoles input').slideToggle();
@@ -119,6 +148,9 @@ $('#miercoles .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#miercoles ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  miercoles[id].status = $(this).attr('class');
+  window.localStorage.setItem('miercoles', JSON.stringify(miercoles));
 })
 
 
@@ -128,7 +160,12 @@ $('#miercoles input').on('keypress', function(e){
       value = $('#miercoles input').val();
       $('#miercoles ul').append('<li data-id="' + miercoles.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#miercoles input').val('');
-      miercoles.push(value);
+
+      var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      miercoles.push(valor);
       window.localStorage.setItem('miercoles', JSON.stringify(miercoles));
   }
 })
@@ -152,12 +189,17 @@ try {
 } catch (error) {
     console.error(error);
 }
-jueves.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#jueves ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#jueves input').val('');
-  }
-})
+if ( jueves != null ) {
+  jueves.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#jueves ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#jueves input').val('');
+    }
+  })
+} else {
+  jueves = Array();
+}
+
 // display or hide input field on click on +
 $('#jueves .fa-plus').on('click', function(){
   $('#jueves input').slideToggle();
@@ -167,6 +209,10 @@ $('#jueves .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#jueves ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  jueves[id].status = $(this).attr('class');
+  window.localStorage.setItem('jueves', JSON.stringify(jueves));
+
 })
 
 
@@ -176,7 +222,12 @@ $('#jueves input').on('keypress', function(e){
       value = $('#jueves input').val();
       $('#jueves ul').append('<li data-id="' + jueves.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#jueves input').val('');
-      jueves.push(value);
+
+      var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      jueves.push(valor);
       window.localStorage.setItem('jueves', JSON.stringify(jueves));
   }
 })
@@ -199,12 +250,17 @@ try {
 } catch (error) {
     console.error(error);
 }
-viernes.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#viernes ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#viernes input').val('');
-  }
-})
+if ( viernes != null ) {
+  viernes.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#viernes ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#viernes input').val('');
+    }
+  })
+} else {
+  viernes = Array();
+}
+
 // display or hide input field on click on +
 $('#viernes .fa-plus').on('click', function(){
   $('#viernes input').slideToggle();
@@ -214,6 +270,10 @@ $('#viernes .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#viernes ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  viernes[id].status = $(this).attr('class');
+  window.localStorage.setItem('viernes', JSON.stringify(viernes));
+
 })
 
 
@@ -223,7 +283,12 @@ $('#viernes input').on('keypress', function(e){
      value = $('#viernes input').val();
       $('#viernes ul').append('<li data-id="' + viernes.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#viernes input').val('');
-      viernes.push(value);
+
+      var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      viernes.push(valor);
       window.localStorage.setItem('viernes', JSON.stringify(viernes));
   }
 })
@@ -247,12 +312,17 @@ try {
 } catch (error) {
     console.error(error);
 }
-sabado.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#sabado ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#sabado input').val('');
-  }
-})
+if ( sabado != null ) {
+  sabado.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#sabado ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#sabado input').val('');
+    }
+  })
+} else {
+  sabado = Array();
+}
+
 // display or hide input field on click on +
 $('#sabado .fa-plus').on('click', function(){
   $('#sabado input').slideToggle();
@@ -262,6 +332,9 @@ $('#sabado .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#sabado ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  sabado[id].status = $(this).attr('class');
+  window.localStorage.setItem('sabado', JSON.stringify(sabado));
 })
 
 
@@ -271,7 +344,12 @@ $('#sabado input').on('keypress', function(e){
      value = $('#sabado input').val();
       $('#sabado ul').append('<li data-id="' + sabado.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#sabado input').val('');
-      sabado.push(value);
+
+       var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      sabado.push(valor);
       window.localStorage.setItem('sabado', JSON.stringify(sabado));
   }
 })
@@ -295,12 +373,17 @@ try {
 } catch (error) {
     console.error(error);
 }
-domingo.forEach( function( name, index ) {
-  if ( name != null ) {
-    $('#domingo ul').append('<li data-id="' + index + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name + '</li>');
-    $('#domingo input').val('');
-  }
-})
+if ( domingo != null ) {
+  domingo.forEach( function( name, index ) {
+    if ( name != null ) {
+      $('#domingo ul').append('<li data-id="' + index + '" class="' + name.status + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + name.value + '</li>');
+      $('#domingo input').val('');
+    }
+  })
+} else {
+  domingo = Array();
+}
+
 // display or hide input field on click on +
 $('#domingo .fa-plus').on('click', function(){
   $('#domingo input').slideToggle();
@@ -310,6 +393,10 @@ $('#domingo .fa-plus').on('click', function(){
 // change css style on click on a to do
 $('#domingo ul').on('click', 'li', function(){
   $(this).toggleClass('done');
+  var id = $(this).data("id");
+  domingo[id].status = $(this).attr('class');
+  window.localStorage.setItem('domingo', JSON.stringify(domingo));
+
 })
 
 
@@ -319,7 +406,12 @@ $('#domingo input').on('keypress', function(e){
      value = $('#domingo input').val();
       $('#domingo ul').append('<li data-id="' + domingo.length + '"><span><i class="fa fa-trash" aria-hidden="true"></i></span> ' + value + '</li>');
       $('#domingo input').val('');
-      domingo.push(value);
+
+      var valor = {
+        'value': value,
+        'status': 'todo' 
+      };
+      domingo.push(valor);
       window.localStorage.setItem('domingo', JSON.stringify(domingo));
   }
 })
